@@ -18,7 +18,6 @@ class Solution {
             }
             else
                 return i;
-            System.out.println(i);
         }
         return i;
     }
