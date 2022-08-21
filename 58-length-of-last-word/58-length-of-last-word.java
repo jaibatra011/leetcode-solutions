@@ -17,6 +17,8 @@ class Solution {
             }
         }
         return ans;
+        
+        //OR (Takes a bit more time but easy to code and understand)
         //String[] arr = s.split(" ");
         //return arr[arr.length-1].length();
     }
