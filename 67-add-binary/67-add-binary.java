@@ -28,5 +28,9 @@ class Solution {
         if(carry>0)
             ans=String.valueOf(carry)+ans;
         return ans;
+        //OR This doesn't work in leetcode, Input is large to be accomodated by long
+        //long x=Long.parseLong(a,2);
+        //long y=Long.parseLong(b,2);
+        //return Long.toBinaryString(x+y);
     }
 }
