@@ -13,10 +13,12 @@ class Solution {
                 }
             }
         }
+        
         //Sort all the lists in hashmap
         for(int i:h.keySet()){
             Collections.sort(h.get(i));
         }
+        
         //remove first element from each list and put it in mat
         for(int i=0;i<mat.length;i++){
             for(int j=0;j<mat[0].length;j++){
