@@ -13,8 +13,5 @@ class Solution {
         for(;j>=0 && pos>=0;){
             nums1[pos--]=nums2[j--];
         }
-        for(;i>=0 && pos>=0;){
-            nums1[pos--]=nums1[i--];
-        }
     }
 }
