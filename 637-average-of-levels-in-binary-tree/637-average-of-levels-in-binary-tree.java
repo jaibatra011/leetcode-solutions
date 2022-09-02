@@ -36,7 +36,7 @@ class Solution {
         averageOfLevelsHelper(list, level+1, root.right);
     }
     public List<Double> averageOfLevels(TreeNode root) {
-        //DFS
+        //DFS (4ms,47.3MB) O(N) O(N)
         List<Pair> list = new ArrayList<>();
         averageOfLevelsHelper(list,0,root);
         List<Double> ans=new ArrayList<>();
@@ -44,7 +44,7 @@ class Solution {
             ans.add(p.sum*1.0/p.count);
         }
         return ans;
-        //BFS (2ms,43.6MB)
+        //BFS (2ms,43.6MB) O(N) O(N)
         /*List<Double> ans = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
