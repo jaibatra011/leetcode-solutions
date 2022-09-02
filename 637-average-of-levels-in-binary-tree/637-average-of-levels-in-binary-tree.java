@@ -13,10 +13,39 @@
  *     }
  * }
  */
+class Pair{
+    long sum;
+    int count;
+    
+    public Pair(){
+        sum=0;
+        count=0;
+    }
+}
 class Solution {
+    public void averageOfLevelsHelper(List<Pair> list, int level, TreeNode root){
+        if(root==null)
+            return;
+        if(list.size()<=level)
+            list.add(level,new Pair());
+        Pair p=list.get(level);
+        p.sum+=root.val;
+        p.count++;
+        list.set(level, p);
+        averageOfLevelsHelper(list, level+1, root.left);
+        averageOfLevelsHelper(list, level+1, root.right);
+    }
     public List<Double> averageOfLevels(TreeNode root) {
         //DFS
-        List<Double> ans = new ArrayList<>();
+        List<Pair> list = new ArrayList<>();
+        averageOfLevelsHelper(list,0,root);
+        List<Double> ans=new ArrayList<>();
+        for(Pair p:list){
+            ans.add(p.sum*1.0/p.count);
+        }
+        return ans;
+        //BFS (2ms,43.6MB)
+        /*List<Double> ans = new ArrayList<>();
         Queue<TreeNode> q = new LinkedList<>();
         q.add(root);
         while(!q.isEmpty()){
@@ -32,6 +61,6 @@ class Solution {
             }
             ans.add((sum*1.0)/size);
         }
-        return ans;
+        return ans;*/
     }
 }
