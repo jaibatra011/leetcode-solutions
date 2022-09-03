@@ -1,5 +1,6 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+        //Using charAt function gives better time and space than toCharArray function
         if(s.length()!=t.length())
             return false;
         int[] count=new int[26];
