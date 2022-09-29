@@ -9,7 +9,7 @@ class Solution {
         while(true){
             if(arr[i]>target && arr[i-1]<target)
                 break;
-            i=(r+l)/2;
+            i=l+(r-l)/2;
             if(arr[i]>target){
                 r=i;
             }
@@ -30,24 +30,21 @@ class Solution {
         ans.add(arr[index]);
         int left=1,right=1;
         while(left+right-1<k){
-            //System.out.println((index)+" "+(index-left)+" "+(index+right));
-            if(index-left>=0 && index+right<arr.length){
-                 //System.out.println(Math.abs(arr[index-left]-x)+" "+Math.abs(arr[index+right]-x));
-                if(Math.abs(arr[index-left]-x)<=Math.abs(arr[index+right]-x)){
+            if(index-left>=0 && index+right<arr.length){ // if index is in range
+                if(Math.abs(arr[index-left]-x)<=Math.abs(arr[index+right]-x)){ //add left
                     ans.add(0,arr[index-left]);
-                    //System.out.println(arr[index-left]);
                     left++;
                 }
-                else{
+                else{ // add right
                     ans.add(arr[index+right]);
                     right++;
                 }
             }
-            else if(index-left<0){
+            else if(index-left<0){ // if left is out of bound, add right
                 ans.add(arr[index+right]);
                 right++;
             }
-            else{
+            else{ // if right is out of bound, add left
                 ans.add(0,arr[index-left]);
                 left++;
             }
